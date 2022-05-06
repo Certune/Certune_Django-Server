@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=uwsgi --http :8000 --home /home/ubuntu/venv/ --chdir /srv/Certune_Django-Server/ -w mycutter.wsgi
+ExecStart=/home/ubuntu/venv/bin/uwsgi -i /srv/Certune_Django-Server/.config/uwsgi/mycutter.ini
 
 Restart=always
 KillSignal=SIGQUIT
