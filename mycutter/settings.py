@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.ap-northeast-2.compute.amazonaws.com',
+    'certune.link',
     '3.34.192.210',
     '0.0.0.0'
 ]
