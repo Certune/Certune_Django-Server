@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     '.ap-northeast-2.compute.amazonaws.com',
     '.certune.link',
     '3.34.192.210',
-    '0.0.0.0'
+    '0.0.0.0',
+    'localhost'
 ]
 
 
@@ -76,6 +77,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mycutter.wsgi.application'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
