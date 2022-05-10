@@ -1,10 +1,13 @@
 from django.http import HttpResponse
+from rest_framework.utils import json
 from rest_framework.views import APIView
 
 
 class getApi(APIView):
     def get(self, request):
-        email = self.request.data.get("useremail")
-        songname = self.request.data.get("songname")
+        result = json.loads(request.body.decode('utf8'))
+        email = result.get('useremail')
+        songname = result.get('songname')
 
-        return HttpResponse(email + " 얍 " + songname)
+        # TODO : parsing 함수 호출 -> 해당 함수에서 롤직 처리하고 firebase 업롤드까지 확인!
+        return HttpResponse(email + " " + songname)
